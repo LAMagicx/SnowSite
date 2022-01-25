@@ -1,28 +1,52 @@
 var PRODUCTS = [
 	{
-		name : 'product name',
-		description : 'this is a description',
-		image : 'img1.png',
-		price : '10'
+		name : 'Burton all mountain',
+		description : '',
+		image : 'burton-all.jpg',
+		price : '100'
 	},
 	{
-		name : 'product name',
-		description : 'this is a description',
-		image : 'img1.png',
-		price : '10'
+		name : 'Burton custom',
+		description : '',
+		image : 'burton-cutom.png',
+		price : '100'
 	},
 	{
-		name : 'product name',
-		description : 'this is a description',
-		image : 'img1.png',
-		price : '10'
+		name : 'Libtech all mountain',
+		description : '',
+		image : 'libtech-all.jpg',
+		price : '100'
 	},
 	{
-		name : 'product name',
-		description : 'this is a description',
-		image : 'img1.png',
-		price : '10'
-	}
+		name : 'LotusSpell femme',
+		description : '',
+		image : 'lotusspell-femme.jpg',
+		price : '100'
+	},
+	{
+		name : 'Salomon Enfant',
+		description : '',
+		image : 'salomon-enfant.jpg',
+		price : '100'
+	},
+	{
+		name : 'Salomon Enfant pack',
+		description : '',
+		image : 'salomon-enfant-pack.jpg',
+		price : '100'
+	},
+	{
+		name : 'Salomon Freestyle',
+		description : '',
+		image : 'salomon-freestyle.jpg',
+		price : '100'
+	},
+	{
+		name : 'Wedze all',
+		description : '',
+		image : 'wedze-all.jpg',
+		price : '100'
+	},
 ]
 
 function addToShop (name, description, image, price) {
