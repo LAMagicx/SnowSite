@@ -61,6 +61,20 @@ var PRODUCTS = [
 		price : '100',
 		category : ['snowboard']
 
+	}, 
+	{
+		name : "Foraker 300",
+		description : '',
+		image : 'foraker.jpg',
+		price : '80',
+		category : ['boots']
+	},
+	{
+		name : "Maoke 300",
+		description : '',
+		image : 'moake.jpg',
+		price : '80',
+		category : ['boots']
 	},
 	{
 		name : 'Burton Freeride/Polyvalent',
@@ -76,6 +90,19 @@ var PRODUCTS = [
 		price : '100',
 		category : ['snowboard', 'pack']
 	},
+		name : "Vans Encore OG",
+		description : '',
+		image : 'vans.jpg',
+		price : '260',
+		category : ['boots']
+	},
+	{
+		name : "Burton Ruler Boa",
+		description : '',
+		image : 'burton.jpg',
+		price : '320',
+		category : ['boots']
+	}
 ]
 
 function addToShop (name, description, image, price) {
