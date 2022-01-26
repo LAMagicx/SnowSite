@@ -90,6 +90,7 @@ var PRODUCTS = [
 		price : '100',
 		category : ['snowboard', 'pack']
 	},
+	{
 		name : "Vans Encore OG",
 		description : '',
 		image : 'vans.jpg',
