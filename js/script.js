@@ -9,7 +9,7 @@ var PRODUCTS = [
 	{
 		name : 'Burton custom',
 		description : '',
-		image : 'burton-cutom.png',
+		image : 'burton-custom.jpg',
 		price : '100',
 		category : ['snowboard']
 
@@ -61,6 +61,20 @@ var PRODUCTS = [
 		price : '100',
 		category : ['snowboard']
 
+	},
+	{
+		name : 'Burton Freeride/Polyvalent',
+		description : '',
+		image : 'burton-freeride_poly.jpg',
+		price : '100',
+		category : ['snowboard', 'pack']
+	},
+	{
+		name : 'Jones All/Freestyle',
+		description : '',
+		image : 'burton-all.jpg',
+		price : '100',
+		category : ['snowboard', 'pack']
 	},
 ]
 
