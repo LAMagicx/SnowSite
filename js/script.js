@@ -111,15 +111,18 @@ function addToShop (name, description, image, price) {
 	item.setAttribute('class', 'item');
 	let header = document.createElement('h3');
 	header.innerText = name;
-	let img = document.createElement('img');
-	img.setAttribute('src', "imgs/" + image);
 	let desc = document.createElement('p');
 	desc.innerText = description;
 	let cost = document.createElement('h4');
 	cost.innerText = "Price: " + price;
 	let shop = document.getElementById("shop");
+	let img = document.createElement('img');
+	img.setAttribute('src', "imgs/" + image);
+	let imgdiv = document.createElement('div');
+	imgdiv.setAttribute('class', 'image-container')
+	imgdiv.appendChild(img);
 	item.appendChild(header);
-	item.appendChild(img);
+	item.appendChild(imgdiv);
 	item.appendChild(desc);
 	item.appendChild(cost);
 	shop.appendChild(item);

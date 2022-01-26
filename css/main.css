@@ -45,9 +45,6 @@ p, h4 {
 }
 
 .footer {
-	width: 100%;
-	height: auto;
-	justify-content: center;
 }
 
 #nav {
@@ -86,7 +83,7 @@ p, h4 {
 	align-content: space-between;
 }
 
-#shop div {
+#shop > div {
 	margin: 0px 10px;
  	flex-flow: column nowrap;
 	vertical-align: middle;
@@ -96,7 +93,13 @@ p, h4 {
 	text-align: center;
 }
 
-#shop img {
+.image-container {
 	width: 15em;
+	height: 15em;
+	overflow: hidden;
+}
+
+.image-container img {
+	width: 100%;
 	height: auto;
 }
