@@ -103,6 +103,20 @@ var PRODUCTS = [
 		image : 'burton.jpg',
 		price : '320',
 		category : ['boots']
+	},
+	{
+		name : "Jones All/Freestyle",
+		description : '',
+		image : 'jones-all_freestyle.jpg',
+		price : '320',
+		category : ['snowboard', 'pack']
+	},
+	{
+		name : "Firefly",
+		description : '',
+		image : 'firefly.jpg',
+		price : '90',
+		category : ['boots']
 	}
 ]
 
