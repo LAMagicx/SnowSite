@@ -684,7 +684,6 @@ let JOBS = [
 	'Plating and Coating Machine Setter',
 	'Plumber',
 	'Podiatrist',
-	'Police and Sheriff's Patrol Officer',
 	'Political Science Teacher',
 	'Political Scientist',
 	'Postal Service Clerk',
@@ -915,3 +914,11 @@ let JOBS = [
 	'Zoologist',
 	'Wildlife Biologist'
 ];
+
+let sel = document.getElementById("jobs");
+for (job of JOBS) {
+	let o = document.createElement("option");
+	o.setAttribute("value", job);
+	o.innerText = job;
+	sel.appendChild(o);
+}
