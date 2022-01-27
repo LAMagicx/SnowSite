@@ -3,8 +3,8 @@
 body,html {
 	padding: 0;
 	margin: 0;
-	font-family: 'Space Mono', monospace;
 	min-height: 100vh;
+	font-family: 'Space Mono', monospace;
 }
 
 div {
@@ -24,7 +24,6 @@ p, h4 {
 }
 
 .header {
-	margin: 1%;
 	width: 100%;
 	height: 10vh;
 	display: flex;
@@ -41,10 +40,13 @@ p, h4 {
 }
 
 .main {
+	min-height: 85vh;
 	width: 100%;
 }
 
 .footer {
+	justify-content: center;
+	min-height: 5vh;
 }
 
 #nav {
@@ -62,14 +64,14 @@ p, h4 {
 #nav li:not(:last-child)::after {
 	content: ':';
 	margin-left: 0.3em;
-	font-size: 1.3em;
+	font-size: 1.3rem;
 	color: #555;
 }
 
 .link {
 	text-decoration: none;
 	color: #555;
-	font-size: 1.3em;
+	font-size: 1.3rem;
 	transition: all 200ms ease-in-out;
 }
 
@@ -102,4 +104,85 @@ p, h4 {
 .image-container img {
 	width: 100%;
 	height: auto;
+}
+
+#form,form {
+	width: 100%;
+}
+
+form {
+	flex-flow: column nowrap;
+	justify-content:space-around;
+}
+
+.contact-form {
+	position:relative;
+	transition: .5s;
+	margin: 1.1em auto;
+	width: 80%;
+	flex-flow: row nowrap;
+	justify-content:space-between;
+}
+
+input[type="radio" i] {
+	margin-top: 0.54em;
+}
+
+input::placeholder {
+	color: transparent;
+}
+
+.style-input input {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #000;
+	outline: none;
+	background: transparent;
+	margin-top: 0em;
+	font-family: 'Space Mono', monospace;
+	font-size: 1.2em;
+}
+
+textarea {
+	border: none;
+	border-bottom: 1px solid #000;
+	outline: none;
+	background: transparent;
+	font-family: 'Space Mono', monospace;
+}
+
+select {
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
+	font-family: 'Space Mono', monospace;
+}
+
+select option {
+	color: #000;
+}
+
+.style-input label {
+	position: absolute;
+	top:0;
+	left: 0;
+	pointer-events: none;
+	margin-top: 0em;
+	transition: 100ms ease-in;
+	font-family: 'Space Mono', monospace;
+}
+
+.contact-form input:focus ~ label,
+.contact-form input:valid ~ label {
+	top: -1.1em;
+	left: 0;
+	font-size: 0.75em;
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+	color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+	color: black !important;
 }
