@@ -47,6 +47,7 @@ p, h4 {
 }
 
 #category-container {
+	margin: 2em;
 	justify-content:space-evenly;
 }
 
@@ -61,7 +62,6 @@ p, h4 {
 }
 
 #nav {
-	margin: 0;
 	list-style-type: none;
 	padding: 0;
 	display: flex;
