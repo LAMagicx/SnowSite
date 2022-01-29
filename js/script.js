@@ -1,29 +1,29 @@
 var PRODUCTS = [
 	{
-		name : 'Burton all mountain',
+		name : 'Burton All Mountain Beginner',
 		description : '',
 		image : 'burton-all.jpg',
 		price : '100',
 		category : ['snowboard']
 	},
 	{
-		name : 'Burton custom',
+		name : 'Burton All Mountain Expert',
 		description : '',
 		image : 'burton-custom.jpg',
-		price : '100',
+		price : '200',
 		category : ['snowboard']
 
 	},
 	{
-		name : 'Libtech all mountain',
+		name : 'Libtech All Mountain',
 		description : '',
 		image : 'libtech-all.jpg',
 		price : '100',
-		category : ['snowboard']
+		category : ['pack']
 
 	},
 	{
-		name : 'LotusSpell femme',
+		name : 'LotusSpell Woman',
 		description : '',
 		image : 'lotusspell-femme.jpg',
 		price : '100',
@@ -31,7 +31,7 @@ var PRODUCTS = [
 
 	},
 	{
-		name : 'Salomon Enfant',
+		name : 'Salomon Child',
 		description : '',
 		image : 'salomon-enfant.jpg',
 		price : '100',
@@ -39,7 +39,7 @@ var PRODUCTS = [
 
 	},
 	{
-
+		name : 'Salomon Child',
 		description : '',
 		image : 'salomon-enfant-pack.jpg',
 		price : '100',
@@ -55,7 +55,7 @@ var PRODUCTS = [
 
 	},
 	{
-		name : 'Wedze all',
+		name : 'Wedze All Mountain',
 		description : '',
 		image : 'wedze-all.jpg',
 		price : '100',
