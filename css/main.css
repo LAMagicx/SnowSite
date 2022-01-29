@@ -24,7 +24,7 @@ p, h4 {
 }
 
 footer {
-	position: absolute;
+	position: relative;
 	bottom: 0;
 	width: clamp(600px, 60vw, 1000px);
 }
