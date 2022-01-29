@@ -73,6 +73,10 @@ p, h4 {
 	color: #555;
 }
 
+.footer p{
+	display: flex;
+}
+
 .link {
 	text-decoration: none;
 	color: #555;
