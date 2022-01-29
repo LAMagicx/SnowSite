@@ -64,7 +64,7 @@ footer {
 }
 
 .footer p {
-	font-size: 1.5em;
+	font-size: 1em;
 }
 
 #nav {
@@ -150,7 +150,7 @@ footer {
 }
 
 .image-container {
-	magin: auto;
+	margin: auto;
 	width: 15em;
 	height: 15em;
 	overflow: hidden;
