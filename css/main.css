@@ -150,6 +150,7 @@ footer {
 }
 
 .image-container {
+	magin: auto;
 	width: 15em;
 	height: 15em;
 	overflow: hidden;
