@@ -142,8 +142,17 @@ function addToShop (name, description, image, price) {
 	shop.appendChild(item);
 }
 
-function loadProducts () {
+function loadProducts (categories) {
+	shop.innerHTML = "";
 	PRODUCTS.forEach(product => {
-		addToShop(product.name, product.description, product.image, product.price);
+		let add = false;
+		for (cat of categories) {
+			if (product.category.includes(cat)) {
+				add = true;
+			}
+		}
+		if (add) {
+			addToShop(product.name, product.description, product.image, product.price);
+		}
 	});
 }
