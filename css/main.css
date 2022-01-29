@@ -53,6 +53,7 @@ footer {
 }
 
 #category-container {
+	margin: 2em;
 	justify-content:space-evenly;
 }
 
@@ -67,7 +68,6 @@ footer {
 }
 
 #nav {
-	margin: 0;
 	list-style-type: none;
 	padding: 0;
 	display: flex;
