@@ -58,9 +58,14 @@
 	let snowboard_check = document.getElementById("snowboard");
 	let boots_check = document.getElementById("boots");
 	let pack_check = document.getElementById("pack");
-	snowboard_check.checked = true;
-	boots_check.checked = true;
-	pack_check.checked = true;
+	let params = new URLSearchParams(location.search);
+	if (params.get("category")) {
+		document.getElementById(params.get("category")).checked=true;
+	} else {
+		snowboard_check.checked = true;
+		boots_check.checked = true;
+		pack_check.checked = true;
+	}
 	function changeCategory() {
 		let cat = [];
 		if (snowboard_check.checked) {
@@ -74,7 +79,7 @@
 		}
 		loadProducts(cat);
 	}
-	loadProducts(['snowboard', 'boots', 'pack']);	
+	changeCategory();
 </script>
 </html>
 
