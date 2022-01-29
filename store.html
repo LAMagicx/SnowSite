@@ -22,6 +22,21 @@
 			</div>
 		</header>
 		<div class="main">
+			<div id="category-container">
+				<label>Categories: </label>
+				<div class="cat">
+					<input type="checkbox" id="snowboard" name="snowboard" onclick="changeCategory()" value="snowboard">
+					<label for="snowboard">Snowboard</label>
+				</div>
+				<div class="cat">
+					<input type="checkbox" id="boots" name="boots" onclick="changeCategory()" value="boots">
+					<label for="boots">Boots</label>
+				</div>
+				<div class="cat">
+					<input type="checkbox" id="pack" name="pack" onclick="changeCategory()" value="pack">
+					<label for="pack">Pack</label>
+				</div>
+			</div>
 			<div id="shop">
 
             </div>
@@ -40,7 +55,26 @@
 </body>
 <script src="js/script.js"></script>
 <script>
-	loadProducts();	
+	let snowboard_check = document.getElementById("snowboard");
+	let boots_check = document.getElementById("boots");
+	let pack_check = document.getElementById("pack");
+	snowboard_check.checked = true;
+	boots_check.checked = true;
+	pack_check.checked = true;
+	function changeCategory() {
+		let cat = [];
+		if (snowboard_check.checked) {
+			cat.push(snowboard_check.value);
+		}
+		if (boots_check.checked) {
+			cat.push(boots_check.value);
+		}
+		if (pack_check.checked) {
+			cat.push(pack_check.value);
+		}
+		loadProducts(cat);
+	}
+	loadProducts(['snowboard', 'boots', 'pack']);	
 </script>
 </html>
 

@@ -27,7 +27,7 @@ var PRODUCTS = [
 		description : '',
 		image : 'lotusspell-femme.jpg',
 		price : '100',
-		category : ['snowboard', 'pack']
+		category : ['pack']
 
 	},
 	{
@@ -39,11 +39,11 @@ var PRODUCTS = [
 
 	},
 	{
-		name : 'Salomon Enfant pack',
+
 		description : '',
 		image : 'salomon-enfant-pack.jpg',
 		price : '100',
-		category : ['snowboard', 'pack']
+		category : ['pack']
 
 	},
 	{
@@ -81,14 +81,7 @@ var PRODUCTS = [
 		description : '',
 		image : 'burton-freeride_poly.jpg',
 		price : '100',
-		category : ['snowboard', 'pack']
-	},
-	{
-		name : 'Jones All/Freestyle',
-		description : '',
-		image : 'burton-all.jpg',
-		price : '100',
-		category : ['snowboard', 'pack']
+		category : ['pack']
 	},
 	{
 		name : "Vans Encore OG",
@@ -109,7 +102,7 @@ var PRODUCTS = [
 		description : '',
 		image : 'jones-all_freestyle.jpg',
 		price : '320',
-		category : ['snowboard', 'pack']
+		category : ['pack']
 	},
 	{
 		name : "Firefly",

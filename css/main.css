@@ -42,14 +42,26 @@ p, h4 {
 .main {
 	min-height: 85vh;
 	width: 100%;
+	display:flex;
+	flex-flow: column nowrap;
+}
+
+#category-container {
+	justify-content:space-evenly;
 }
 
 .footer {
+	font-size:0.5em;
 	justify-content: center;
 	min-height: 5vh;
 }
 
+.footer p {
+	font-size: 1.5em;
+}
+
 #nav {
+	margin: 0;
 	list-style-type: none;
 	padding: 0;
 	display: flex;
@@ -93,6 +105,14 @@ p, h4 {
 
 #shop h3,h4,p {
 	text-align: center;
+}
+
+.homemsg {
+	margin: 2em;
+}
+
+.homemsg span {
+	margin: 0.5em;
 }
 
 .image-container {
