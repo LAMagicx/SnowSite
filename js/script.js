@@ -84,13 +84,6 @@ var PRODUCTS = [
 		category : ['snowboard', 'pack']
 	},
 	{
-		name : 'Jones All/Freestyle',
-		description : '',
-		image : 'burton-all.jpg',
-		price : '100',
-		category : ['snowboard', 'pack']
-	},
-	{
 		name : "Vans Encore OG",
 		description : '',
 		image : 'vans.jpg',
