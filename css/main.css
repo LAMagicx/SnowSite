@@ -69,14 +69,19 @@ p, h4 {
 	
 }
 
-#nav li {
-	display: inline;
+.nav li {
+	display: flex;
 }
 
-#nav li:not(:last-child)::after {
+.nav li:not(:last-child)::after {
 	content: ':';
 	margin-left: 0.3em;
 	font-size: 1.3rem;
+	color: #555;
+}
+
+.nav p{
+	font-size: larger;
 	color: #555;
 }
 
