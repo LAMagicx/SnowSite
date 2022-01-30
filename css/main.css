@@ -195,7 +195,7 @@ input::placeholder {
 	background: transparent;
 	margin-top: 0em;
 	font-family: 'Space Mono', monospace;
-	font-size: 1.2em;
+	/* font-size: 1.2em; */
 }
 
 textarea {
@@ -232,7 +232,7 @@ select option {
 .contact-form input:valid ~ label {
 	top: -1.1em;
 	left: 0;
-	font-size: 0.75em;
+	/* font-size: 0.75em; */
 }
 
 input[type=date]:required:invalid::-webkit-datetime-edit {
