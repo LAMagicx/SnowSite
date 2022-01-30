@@ -3,14 +3,14 @@ var PRODUCTS = [
 		name : 'Burton All Mountain Beginner',
 		description : '',
 		image : 'burton-all.jpg',
-		price : '100',
+		price : '200',
 		category : ['snowboard']
 	},
 	{
 		name : 'Burton All Mountain Expert',
 		description : '',
 		image : 'burton-custom.jpg',
-		price : '200',
+		price : '500',
 		category : ['snowboard']
 
 	},
@@ -18,7 +18,7 @@ var PRODUCTS = [
 		name : 'Libtech All Mountain',
 		description : '',
 		image : 'libtech-all.jpg',
-		price : '100',
+		price : '350',
 		category : ['pack']
 
 	},
@@ -26,7 +26,7 @@ var PRODUCTS = [
 		name : 'LotusSpell Woman',
 		description : '',
 		image : 'lotusspell-femme.jpg',
-		price : '100',
+		price : '250',
 		category : ['pack']
 
 	},
@@ -34,7 +34,7 @@ var PRODUCTS = [
 		name : 'Salomon Child',
 		description : '',
 		image : 'salomon-enfant.jpg',
-		price : '100',
+		price : '150',
 		category : ['snowboard']
 
 	},
@@ -42,7 +42,7 @@ var PRODUCTS = [
 		name : 'Salomon Child',
 		description : '',
 		image : 'salomon-enfant-pack.jpg',
-		price : '100',
+		price : '175',
 		category : ['pack']
 
 	},
@@ -50,7 +50,7 @@ var PRODUCTS = [
 		name : 'Salomon Freestyle',
 		description : '',
 		image : 'salomon-freestyle.jpg',
-		price : '100',
+		price : '300',
 		category : ['snowboard']
 
 	},
@@ -58,7 +58,7 @@ var PRODUCTS = [
 		name : 'Wedze All Mountain',
 		description : '',
 		image : 'wedze-all.jpg',
-		price : '100',
+		price : '200',
 		category : ['snowboard']
 
 	}, 
@@ -80,28 +80,28 @@ var PRODUCTS = [
 		name : 'Burton Freeride/Polyvalent',
 		description : '',
 		image : 'burton-freeride_poly.jpg',
-		price : '100',
+		price : '300',
 		category : ['pack']
 	},
 	{
 		name : "Vans Encore OG",
 		description : '',
 		image : 'vans.jpg',
-		price : '260',
+		price : '120',
 		category : ['boots']
 	},
 	{
 		name : "Burton Ruler Boa",
 		description : '',
 		image : 'burton.jpg',
-		price : '320',
+		price : '130',
 		category : ['boots']
 	},
 	{
 		name : "Jones All/Freestyle",
 		description : '',
 		image : 'jones-all_freestyle.jpg',
-		price : '320',
+		price : '370',
 		category : ['pack']
 	},
 	{
