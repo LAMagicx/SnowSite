@@ -207,7 +207,6 @@ function reduceQty(element, stock) {
 	let qty = parseInt(element.nextSibling.innerText);
 	if ((stock >= qty) && (qty > 0)) {
 		qty--;
-		console.log(qty);
 		element.nextSibling.innerText = qty;
 	}
 }
