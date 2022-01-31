@@ -145,6 +145,17 @@ footer {
 	justify-content: center;
 }
 
+.selectQty > button {
+	background-color: transparent;
+	border-radius: 50%;
+	border: 1px solid #3d3d3d;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	padding: 0;
+	margin: 0 5%;
+}
+
 .homemsg {
 	margin: 2em;
 }
