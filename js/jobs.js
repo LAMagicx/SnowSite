@@ -881,3 +881,43 @@ for (job of JOBS) {
 	o.innerText = job;
 	sel.appendChild(o);
 }
+
+function checkValues () {
+	date = document.getElementById("date");
+	firstname = document.getElementById("firstname");
+	name = document.getElementById("name");
+	mail = document.getElementById("mail");
+	male = document.getElementById("male");
+	female = document.getElementById("female");
+	other = document.getElementById("other");
+	jobs = document.getElementById("jobs");
+	subject = document.getElementById("subject");
+	content = document.getElementById("content");
+}
+
+function checkFirstName (ele) {
+	if (ele.value == "") {
+		// not good
+		return 0;
+	} else {
+		return 1;
+	}
+}
+
+function checkName (ele) {
+	if (ele.value == "") {
+		// not good
+		return 0;
+	} else {
+		return 1;
+	}
+}
+
+function checkMail (ele) {
+	if (ele.value == "") {
+		// not good
+		return 0;
+	} else {
+		return 1;
+	}
+}
