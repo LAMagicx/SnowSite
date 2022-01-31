@@ -159,7 +159,9 @@ footer {
 .image-container img {
 	width: 100%;
 	height: auto;
+	cursor: pointer;
 }
+
 
 #form,form {
 	width: 100%;
@@ -240,4 +242,27 @@ input[type=date]:required:invalid::-webkit-datetime-edit {
 }
 input[type=date]:focus::-webkit-datetime-edit {
 	color: black !important;
+}
+
+#image-zoomer {
+	position: fixed;
+	top:0;
+	left: 0;
+	min-width: 100vw;
+	min-height: 100vh;
+	justify-content:center;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+#image-zoomer img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 100%;
+	width: auto;
+}
+
+.hidden {
+	display: none !important;
 }
