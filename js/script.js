@@ -4,14 +4,16 @@ var PRODUCTS = [
 		description : '',
 		image : 'burton-all.jpg',
 		price : '200',
-		category : ['snowboard']
+		category : ['snowboard'],
+		stock : '3'
 	},
 	{
 		name : 'Burton All Mountain Expert',
 		description : '',
 		image : 'burton-custom.jpg',
 		price : '500',
-		category : ['snowboard']
+		category : ['snowboard'],
+		stock : '1'
 
 	},
 	{
@@ -19,7 +21,8 @@ var PRODUCTS = [
 		description : '',
 		image : 'libtech-all.jpg',
 		price : '350',
-		category : ['pack']
+		category : ['pack'],
+		stock : '2'
 
 	},
 	{
@@ -27,7 +30,8 @@ var PRODUCTS = [
 		description : '',
 		image : 'lotusspell-femme.jpg',
 		price : '250',
-		category : ['pack']
+		category : ['pack'],
+		stock : '3'
 
 	},
 	{
@@ -35,7 +39,8 @@ var PRODUCTS = [
 		description : '',
 		image : 'salomon-enfant.jpg',
 		price : '150',
-		category : ['snowboard']
+		category : ['snowboard'],
+		stock : '4'
 
 	},
 	{
@@ -43,7 +48,8 @@ var PRODUCTS = [
 		description : '',
 		image : 'salomon-enfant-pack.jpg',
 		price : '175',
-		category : ['pack']
+		category : ['pack'],
+		stock : '1'
 
 	},
 	{
@@ -51,7 +57,8 @@ var PRODUCTS = [
 		description : '',
 		image : 'salomon-freestyle.jpg',
 		price : '300',
-		category : ['snowboard']
+		category : ['snowboard'],
+		stock : '2'
 
 	},
 	{
@@ -59,7 +66,8 @@ var PRODUCTS = [
 		description : '',
 		image : 'wedze-all.jpg',
 		price : '200',
-		category : ['snowboard']
+		category : ['snowboard'],
+		stock : '2'
 
 	}, 
 	{
@@ -67,53 +75,60 @@ var PRODUCTS = [
 		description : '',
 		image : 'foraker.jpg',
 		price : '80',
-		category : ['boots']
+		category : ['boots'],
+		stock : '5'
 	},
 	{
 		name : "Maoke 300",
 		description : '',
 		image : 'moake.jpg',
 		price : '80',
-		category : ['boots']
+		category : ['boots'],
+		stock : '6'
 	},
 	{
 		name : 'Burton Freeride/Polyvalent',
 		description : '',
 		image : 'burton-freeride_poly.jpg',
 		price : '300',
-		category : ['pack']
+		category : ['pack'],
+		stock : '2'
 	},
 	{
 		name : "Vans Encore OG",
 		description : '',
 		image : 'vans.jpg',
 		price : '120',
-		category : ['boots']
+		category : ['boots'],
+		stock : '4'
 	},
 	{
 		name : "Burton Ruler Boa",
 		description : '',
 		image : 'burton.jpg',
 		price : '130',
-		category : ['boots']
+		category : ['boots'],
+		stock : '6'
 	},
 	{
 		name : "Jones All/Freestyle",
 		description : '',
 		image : 'jones-all_freestyle.jpg',
 		price : '370',
-		category : ['pack']
+		category : ['pack'],
+		stock : '2'
 	},
 	{
 		name : "Firefly",
 		description : '',
 		image : 'firefly.jpg',
 		price : '90',
-		category : ['boots']
+		category : ['boots'],
+		stock : '4'
 	}
 ]
 
-function addToShop (name, description, image, price) {
+function addToShop (name, description, image, price, stock) {
 	let item = document.createElement("div");
 	item.setAttribute('class', 'item');
 	let header = document.createElement('h3');
@@ -122,16 +137,21 @@ function addToShop (name, description, image, price) {
 	desc.innerText = description;
 	let cost = document.createElement('h4');
 	cost.innerText = "Price: " + price;
+	let qty = document.createElement('h4');
+	qty.innerText = "Stock: " + stock;
+	qty.setAttribute('class', 'stock');
+	qty.hidden = true;
 	let shop = document.getElementById("shop");
 	let img = document.createElement('img');
 	img.setAttribute('src', "imgs/" + image);
 	let imgdiv = document.createElement('div');
-	imgdiv.setAttribute('class', 'image-container')
+	imgdiv.setAttribute('class', 'image-container');
 	imgdiv.appendChild(img);
 	item.appendChild(header);
 	item.appendChild(imgdiv);
 	item.appendChild(desc);
 	item.appendChild(cost);
+	item.appendChild(qty);
 	shop.appendChild(item);
 }
 
@@ -145,7 +165,7 @@ function loadProducts (categories) {
 			}
 		}
 		if (add) {
-			addToShop(product.name, product.description, product.image, product.price);
+			addToShop(product.name, product.description, product.image, product.price, product.stock);
 		}
 	});
 }

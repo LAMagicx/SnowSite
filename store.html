@@ -42,7 +42,11 @@
 			</div>
 			<div id="shop">
 
-    			</div>
+    		</div>
+			<div id="showStockOrNot">
+				<button id="showStock" onclick="showStock()">Show Stock</button>
+				<button id="hideStock" onclick="hideStock()" hidden>Hide Stock</button>
+			</div>
 		</div>
 		<footer>
 			<div class="footer">
@@ -104,6 +108,24 @@
 		loadProducts(cat);
 	}
 	changeCategory();
+
+	function showStock() {
+		document.getElementById("showStock").hidden = true;
+		document.getElementById("hideStock").hidden = false;
+		let stocks = document.getElementsByClassName("stock");
+		Array.from(stocks).forEach(element => {
+			element.hidden = false;
+		});
+	}
+
+	function hideStock() {
+		document.getElementById("hideStock").hidden = true;
+		document.getElementById("showStock").hidden = false;
+		let stocks = document.getElementsByClassName("stock");
+		Array.from(stocks).forEach(element => {
+			element.hidden = true;
+		});
+	}
 </script>
 </html>
 
