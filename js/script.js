@@ -205,8 +205,6 @@ function unzoom() {
 }
 function reduceQty(element, stock) {
 	let qty = parseInt(element.nextSibling.innerText);
-	console.log(qty);
-	console.log(stock);
 	if ((stock >= qty) && (qty > 0)) {
 		qty--;
 		console.log(qty);
@@ -216,10 +214,8 @@ function reduceQty(element, stock) {
 
 function increaseQty(element, stock) {
 	let qty = parseInt(element.previousSibling.innerText);
-	console.log(qty);
 	if ((stock > qty) && (qty >= 0)) {
 		qty++;
-		console.log(qty);
 		element.previousSibling.innerText = qty;
 	}
 }
