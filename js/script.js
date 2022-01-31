@@ -129,6 +129,7 @@ var PRODUCTS = [
 ]
 
 function addToShop (name, description, image, price, stock) {
+
 	let item = document.createElement("div");
 	item.setAttribute('class', 'item');
 	let header = document.createElement('h3');
@@ -137,13 +138,23 @@ function addToShop (name, description, image, price, stock) {
 	desc.innerText = description;
 	let cost = document.createElement('h4');
 	cost.innerText = "Price: " + price;
-	let qty = document.createElement('h4');
-	qty.innerText = "Stock: " + stock;
-	qty.setAttribute('class', 'stock');
-	qty.hidden = true;
+	let stockQty = document.createElement('h4');
+	stockQty.innerText = "Stock: " + stock;
+	stockQty.setAttribute('class', 'stock');
+	stockQty.hidden = true;
 	let shop = document.getElementById("shop");
 	let img = document.createElement('img');
 	img.setAttribute('src', "imgs/" + image);
+	let selectQty = document.createElement("div");
+	selectQty.setAttribute('class', 'selectQty');
+	let minus = document.createElement('button');
+	minus.innerText = "-";
+	minus.setAttribute('onclick', 'reduceQty(this, ' + stock + ')');
+	let qtyNb = document.createElement('p');
+	qtyNb.innerText = '0';
+	let plus = document.createElement('button');
+	plus.innerText = "+";
+	plus.setAttribute('onclick', 'increaseQty(this, ' + stock + ')');
 	let imgdiv = document.createElement('div');
 	imgdiv.setAttribute('class', 'image-container');
 	imgdiv.appendChild(img);
@@ -151,7 +162,11 @@ function addToShop (name, description, image, price, stock) {
 	item.appendChild(imgdiv);
 	item.appendChild(desc);
 	item.appendChild(cost);
-	item.appendChild(qty);
+	item.appendChild(stockQty);
+	item.appendChild(selectQty);
+	selectQty.appendChild(minus);
+	selectQty.appendChild(qtyNb);
+	selectQty.appendChild(plus);
 	shop.appendChild(item);
 }
 
@@ -168,4 +183,25 @@ function loadProducts (categories) {
 			addToShop(product.name, product.description, product.image, product.price, product.stock);
 		}
 	});
+}
+
+function reduceQty(element, stock) {
+	let qty = parseInt(element.nextSibling.innerText);
+	console.log(qty);
+	console.log(stock);
+	if ((stock >= qty) && (qty > 0)) {
+		qty--;
+		console.log(qty);
+		element.nextSibling.innerText = qty;
+	}
+}
+
+function increaseQty(element, stock) {
+	let qty = parseInt(element.previousSibling.innerText);
+	console.log(qty);
+	if ((stock > qty) && (qty >= 0)) {
+		qty++;
+		console.log(qty);
+		element.previousSibling.innerText = qty;
+	}
 }
