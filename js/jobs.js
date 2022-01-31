@@ -881,3 +881,112 @@ for (job of JOBS) {
 	o.innerText = job;
 	sel.appendChild(o);
 }
+
+function checkValues () {
+	date = document.getElementById("date");
+	firstname = document.getElementById("firstname");
+	surname = document.getElementById("surname");
+	mail = document.getElementById("mail");
+	male = document.getElementById("male");
+	female = document.getElementById("female");
+	other = document.getElementById("other");
+	jobs = document.getElementById("jobs");
+	subject = document.getElementById("subject");
+	content = document.getElementById("content");
+
+	checks = checkDate(date) + checkFirstName(firstname) + checkName(surname) + checkMail(mail) + checkJobs(jobs) + checkSubject(subject) + checkContent(content);
+
+	if (checks == 0) {
+		console.log("all good to go");
+	}else{
+		console.log("nope something required");
+	}
+}
+
+// stackoverflow
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
+function checkDate (ele) {
+	ele.classList.remove("error");
+	let currentDate = new Date();
+	let date = new Date(ele.value);
+	// at least 18
+	if (currentDate.getTime() - 1000*60*60*24*365*18 > date.getTime()) {
+		return 0;
+	}else{
+		ele.classList.add("error");
+		return 1;
+	}
+}
+
+function checkFirstName (ele) {
+	ele.classList.remove("error");
+	if (ele.value == "") {
+		// not good
+		ele.classList.add("error");
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+function checkName (ele) {
+	ele.classList.remove("error");
+	if (ele.value == "") {
+		// not good
+		ele.classList.add("error");
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+function checkMail (ele) {
+	ele.classList.remove("error");
+	if (ele.value == "" || !validateEmail(ele.value)) {
+		// not good
+		ele.classList.add("error");
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+function checkJobs (ele) {
+	ele.classList.remove("error");
+	if (ele.value == "") {
+		// not good
+		ele.classList.add("error");
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+function checkSubject (ele) {
+	ele.classList.remove("error");
+	if (ele.value == "") {
+		// not good
+		ele.classList.add("error");
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+function checkContent (ele) {
+	ele.classList.remove("error");
+	if (ele.value == "") {
+		// not good
+		ele.classList.add("error");
+		return 1;
+	} else {
+		return 0;
+	}
+}
