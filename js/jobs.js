@@ -893,31 +893,86 @@ function checkValues () {
 	jobs = document.getElementById("jobs");
 	subject = document.getElementById("subject");
 	content = document.getElementById("content");
+
+	checks = checkDate(date) + checkFirstName(firstname) + checkName(name) + checkMail(mail) + checkJobs(jobs) + checkSubject(subject) + checkContent(content);
+
+	if (checks == 0) {
+		console.log("all good to go");
+	}else{
+		console.log("nope something required");
+	}
+}
+
+// stackoverflow
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
+function checkDate (ele) {
+	let currentDate = new Date();
+	let date = new Date(ele.value);
+	// at least 18
+	if (currentDate.getTime() - 1000*60*60*24*365*18 > date.getTime()) {
+		return 0;
+	}else{
+		return 1;
+	}
 }
 
 function checkFirstName (ele) {
 	if (ele.value == "") {
 		// not good
-		return 0;
-	} else {
 		return 1;
+	} else {
+		return 0;
 	}
 }
 
 function checkName (ele) {
 	if (ele.value == "") {
 		// not good
-		return 0;
-	} else {
 		return 1;
+	} else {
+		return 0;
 	}
 }
 
 function checkMail (ele) {
+	if (ele.value == "" || !validateEmail(ele.value)) {
+		// not good
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+function checkJobs (ele) {
 	if (ele.value == "") {
 		// not good
-		return 0;
-	} else {
 		return 1;
+	} else {
+		return 0;
+	}
+}
+
+function checkSubject (ele) {
+	if (ele.value == "") {
+		// not good
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+function checkContent (ele) {
+	if (ele.value == "") {
+		// not good
+		return 1;
+	} else {
+		return 0;
 	}
 }
