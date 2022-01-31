@@ -141,6 +141,10 @@ footer {
 	text-align: center;
 }
 
+.selectQty{
+	justify-content: center;
+}
+
 .homemsg {
 	margin: 2em;
 }
