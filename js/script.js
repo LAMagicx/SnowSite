@@ -144,6 +144,7 @@ function addToShop (name, description, image, price, stock) {
 	let shop = document.getElementById("shop");
 	let img = document.createElement('img');
 	img.setAttribute('src', "imgs/" + image);
+	img.setAttribute('onclick', 'zoomImage(this)')
 	let imgdiv = document.createElement('div');
 	imgdiv.setAttribute('class', 'image-container');
 	imgdiv.appendChild(img);
@@ -168,4 +169,22 @@ function loadProducts (categories) {
 			addToShop(product.name, product.description, product.image, product.price, product.stock);
 		}
 	});
+}
+
+function zoomImage (element) {
+	let src = element.src;
+	let div = document.getElementById("image-zoomer");
+	div.innerHTML = "";
+	div.classList.remove("hidden");
+	let img = document.createElement('img');
+	img.setAttribute("src", src);
+	img.setAttribute("onclick", "unzoom()");
+	div.setAttribute("onclick", "unzoom()");
+	div.appendChild(img);
+}
+
+function unzoom() {
+	let div = document.getElementById("image-zoomer");
+	div.innerHTML = "";
+	div.classList.add("hidden");
 }
