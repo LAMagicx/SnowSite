@@ -57,6 +57,47 @@ footer {
 	justify-content:space-evenly;
 }
 
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  display: grid;
+  margin: 0.2em 0.2em 0 0;
+  place-content: center;
+  transform: translateY(-0.075em);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);/*easeOutCirc*/
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  background-color: black;
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
 .footer {
 	flex-flow: column nowrap;
 	justify-content: center;
@@ -155,6 +196,11 @@ footer {
 	padding: 0;
 	margin: 0 5%;
 	cursor: pointer;
+	transition: all 100ms ease-in-out;
+}
+
+.selectQty > button:hover {
+	transform: scale(1.1);	
 }
 
 .homemsg {
@@ -301,6 +347,10 @@ input[type=date]:focus::-webkit-datetime-edit {
 
 .btn:hover {
 	text-decoration: none;
+}
+
+#showStockOrNot {
+	justify-content: center;
 }
   
 #showStockOrNot button{
