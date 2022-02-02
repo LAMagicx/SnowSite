@@ -156,6 +156,11 @@ function addToShop (name, description, image, price, stock) {
 	let plus = document.createElement('button');
 	plus.innerText = "+";
 	plus.setAttribute('onclick', 'increaseQty(this, ' + stock + ')');
+	let addToCartDiv = document.createElement("div");
+	addToCartDiv.setAttribute('class', 'addToCartDiv');
+	let addToCart = document.createElement('button');
+	addToCart.innerText = 'Add to cart';
+	addToCart.setAttribute('class', 'btn effect01');
 	let imgdiv = document.createElement('div');
 	imgdiv.setAttribute('class', 'image-container');
 	imgdiv.appendChild(img);
@@ -168,6 +173,8 @@ function addToShop (name, description, image, price, stock) {
 	selectQty.appendChild(minus);
 	selectQty.appendChild(qtyNb);
 	selectQty.appendChild(plus);
+	item.appendChild(addToCartDiv);
+	addToCartDiv.appendChild(addToCart);
 	shop.appendChild(item);
 }
 

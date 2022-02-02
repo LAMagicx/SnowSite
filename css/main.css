@@ -203,6 +203,15 @@ input[type="checkbox"]:checked::before {
 	transform: scale(1.1);	
 }
 
+.addToCartDiv > button {
+	max-width: 150px;
+	margin: 4px;
+}
+
+.addToCartDiv {
+	justify-content: center;
+}
+
 .homemsg {
 	margin: 2em;
 }
