@@ -129,7 +129,6 @@ var PRODUCTS = [
 ]
 
 function addToShop (name, description, image, price, stock) {
-
 	let item = document.createElement("div");
 	item.setAttribute('class', 'item');
 	let header = document.createElement('h3');
@@ -151,11 +150,13 @@ function addToShop (name, description, image, price, stock) {
 	let minus = document.createElement('button');
 	minus.innerText = "-";
 	minus.setAttribute('onclick', 'reduceQty(this, ' + stock + ')');
+	minus.setAttribute('class', 'effect01');
 	let qtyNb = document.createElement('p');
 	qtyNb.innerText = '0';
 	let plus = document.createElement('button');
 	plus.innerText = "+";
 	plus.setAttribute('onclick', 'increaseQty(this, ' + stock + ')');
+	plus.setAttribute('class', 'effect01');
 	let addToCartDiv = document.createElement("div");
 	addToCartDiv.setAttribute('class', 'addToCartDiv');
 	let addToCart = document.createElement('button');
