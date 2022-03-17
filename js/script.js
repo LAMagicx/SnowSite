@@ -1,133 +1,3 @@
-var PRODUCTS = [
-	{
-		name : 'Burton All Mountain Beginner',
-		description : '',
-		image : 'burton-all.jpg',
-		price : '200',
-		category : ['snowboard'],
-		stock : '3'
-	},
-	{
-		name : 'Burton All Mountain Expert',
-		description : '',
-		image : 'burton-custom.jpg',
-		price : '500',
-		category : ['snowboard'],
-		stock : '1'
-
-	},
-	{
-		name : 'Libtech All Mountain',
-		description : '',
-		image : 'libtech-all.jpg',
-		price : '350',
-		category : ['pack'],
-		stock : '2'
-
-	},
-	{
-		name : 'LotusSpell Woman',
-		description : '',
-		image : 'lotusspell-femme.jpg',
-		price : '250',
-		category : ['pack'],
-		stock : '3'
-
-	},
-	{
-		name : 'Salomon Child',
-		description : '',
-		image : 'salomon-enfant.jpg',
-		price : '150',
-		category : ['snowboard'],
-		stock : '4'
-
-	},
-	{
-		name : 'Salomon Child',
-		description : '',
-		image : 'salomon-enfant-pack.jpg',
-		price : '175',
-		category : ['pack'],
-		stock : '1'
-
-	},
-	{
-		name : 'Salomon Freestyle',
-		description : '',
-		image : 'salomon-freestyle.jpg',
-		price : '300',
-		category : ['snowboard'],
-		stock : '2'
-
-	},
-	{
-		name : 'Wedze All Mountain',
-		description : '',
-		image : 'wedze-all.jpg',
-		price : '200',
-		category : ['snowboard'],
-		stock : '2'
-
-	}, 
-	{
-		name : "Foraker 300",
-		description : '',
-		image : 'foraker.jpg',
-		price : '80',
-		category : ['boots'],
-		stock : '5'
-	},
-	{
-		name : "Maoke 300",
-		description : '',
-		image : 'moake.jpg',
-		price : '80',
-		category : ['boots'],
-		stock : '6'
-	},
-	{
-		name : 'Burton Freeride/Polyvalent',
-		description : '',
-		image : 'burton-freeride_poly.jpg',
-		price : '300',
-		category : ['pack'],
-		stock : '2'
-	},
-	{
-		name : "Vans Encore OG",
-		description : '',
-		image : 'vans.jpg',
-		price : '120',
-		category : ['boots'],
-		stock : '4'
-	},
-	{
-		name : "Burton Ruler Boa",
-		description : '',
-		image : 'burton.jpg',
-		price : '130',
-		category : ['boots'],
-		stock : '6'
-	},
-	{
-		name : "Jones All/Freestyle",
-		description : '',
-		image : 'jones-all_freestyle.jpg',
-		price : '370',
-		category : ['pack'],
-		stock : '2'
-	},
-	{
-		name : "Firefly",
-		description : '',
-		image : 'firefly.jpg',
-		price : '90',
-		category : ['boots'],
-		stock : '4'
-	}
-]
-
 function addToShop (name, description, image, price, stock) {
 	let item = document.createElement("div");
 	item.setAttribute('class', 'item');
@@ -211,6 +81,7 @@ function unzoom() {
 	div.innerHTML = "";
 	div.classList.add("hidden");
 }
+
 function reduceQty(element, stock) {
 	let qty = parseInt(element.nextSibling.innerText);
 	if ((stock >= qty) && (qty > 0)) {
@@ -224,5 +95,54 @@ function increaseQty(element, stock) {
 	if ((stock > qty) && (qty >= 0)) {
 		qty++;
 		element.previousSibling.innerText = qty;
+	}
+}
+
+function changeCategory() {
+	let cat = [];
+	let cats = document.getElementsByClassName("category");
+	for (const c of cats) {
+		if (c.checked)
+			cat.push(c.value);
+	}
+	loadProducts(cat);
+}
+
+function showStock() {
+	document.getElementById("showStock").hidden = true;
+	document.getElementById("hideStock").hidden = false;
+	let stocks = document.getElementsByClassName("stock");
+	Array.from(stocks).forEach(element => {
+		element.hidden = false;
+	});
+}
+
+function hideStock() {
+	document.getElementById("hideStock").hidden = true;
+	document.getElementById("showStock").hidden = false;
+	let stocks = document.getElementsByClassName("stock");
+	Array.from(stocks).forEach(element => {
+		element.hidden = true;
+	});
+}
+
+function createTicks (cats) {
+	let b = document.getElementById("category-container");
+	for (cat of cats) {
+		let d = document.createElement('div');
+		let i = document.createElement('input');
+		let l = document.createElement('label');
+		d.setAttribute('class', 'cat');
+		i.setAttribute('class', 'category');
+		i.setAttribute('type', 'checkbox');
+		i.setAttribute('id', cat);
+		i.setAttribute('name', cat);
+		i.setAttribute('onclick', "changeCategory()");
+		i.setAttribute('value', cat);
+		l.setAttribute('for', cat);
+		l.innerText = cat;
+		d.appendChild(i);
+		d.appendChild(l);
+		b.appendChild(d);
 	}
 }

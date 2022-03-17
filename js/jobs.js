@@ -883,6 +883,7 @@ for (job of JOBS) {
 }
 
 function checkValues () {
+	// on recuper chaque input dans le form
 	date = document.getElementById("date");
 	firstname = document.getElementById("firstname");
 	surname = document.getElementById("surname");
@@ -894,6 +895,7 @@ function checkValues () {
 	subject = document.getElementById("subject");
 	content = document.getElementById("content");
 
+	// on verifie chaque input indivuduellement 
 	checks = checkDate(date) + checkFirstName(firstname) + checkName(surname) + checkMail(mail) + checkJobs(jobs) + checkSubject(subject) + checkContent(content);
 
 	if (checks == 0) {
