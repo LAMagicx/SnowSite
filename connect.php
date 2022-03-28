@@ -15,15 +15,21 @@ include("php/sessions.php");
 </head>
 <body>
 	<div id="container">
+<script>
+<?php
+echo "console.log(".$_SESSION["loggedIn"].");";
+?>
+</script>
 
 	<?php
 
 	include("include/header.php");
+	if (!$_SESSION["loggedIn"]) {
 
 	?>
 		<div class="main">
 			<div id="form">
-				<form action="" method="" >
+				<form action="php/manageLogin.php" method="POST" >
 					<div class="contact-form style-input">
 						<input type="text" name="username" id="username" placeholder="Enter your username" required>
 						<label for="username">Username</label>
@@ -33,12 +39,25 @@ include("php/sessions.php");
 						<label for="password">Password</label>
 					</div>
 					<div class="contact-form" style="justify-content: center;">
-						<input type="submit" value="Log In" style="min-width: 20%;">
+						<button type="submit" style="min-width: 20%;" class="btn effect01" ><span>Sign In</span></button>
 					</div>
 				</form>
 			</div>
 		</div>
 	<?php
+	}else{
+	?>
+	<div class="main">
+		<div id="form">
+			<form action="php/disconnect.php">
+				<div class="contact-form" style="justify-content: center;">
+					<button type="submit" style="min-width: 20%;" class="btn effect01" ><span>Disconnect</span></button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<?php
+	}
 
 	include("include/footer.php");
 

@@ -48,9 +48,8 @@ include("php/sessions.php");
 		document.getElementById(params.get("category")).checked=true;
 	} else {
 		for (const cat of cats) {
-			cat.checked = true;
+			document.getElementById(cat).checked = true;
 		}
-		
 	}
 	changeCategory();
 </script>

@@ -1,13 +1,3 @@
-<script>
-
-<?php
-
-$js_array = json_encode($_SESSION["DATA"]);
-echo "var PRODUCTS = ". $js_array . ";\n";
-
-?>
-
-</script>
 <footer>
 	<div class="footer">
 		<div class="top">
@@ -36,6 +26,14 @@ echo "var PRODUCTS = ". $js_array . ";\n";
 	</div>
 </footer>
 <script>
+
+<?php
+
+$js_array = json_encode(json_decode(file_get_contents("cat.json")));
+echo "var PRODUCTS = ". $js_array . ";\n";
+
+?>
+
 	let s = new Set();
 	for (p of PRODUCTS) {
 		for (c of p.category) {
@@ -49,7 +47,6 @@ echo "var PRODUCTS = ". $js_array . ";\n";
 		a.setAttribute("href", "store.php?category="+c);	
 		a.setAttribute("class", "link");
 		a.innerText = c;
-		 
 		l.appendChild(a); 
 		document.getElementById("shop-links").appendChild(l);
 	}
