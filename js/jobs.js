@@ -875,7 +875,7 @@ let JOBS = [
 ];
 
 let sel = document.getElementById("jobs");
-for (job of JOBS) {
+for (var job of JOBS) {
 	let o = document.createElement("option");
 	o.setAttribute("value", job);
 	o.innerText = job;
@@ -900,6 +900,32 @@ function checkValues () {
 
 	if (checks == 0) {
 		console.log("all good to go");
+		var data = new FormData();
+		data.append("date", date.value);
+		data.append("firstname", firstname.value);
+		data.append("surname", surname.value);
+		data.append("mail", mail.value);
+		data.append("male", male.checked);
+		data.append("female", female.checked);
+		data.append("other", other.checked);
+		data.append("jobs", jobs.value);
+		data.append("subject", subject.value);
+		data.append("content", content.value);
+		console.log("data.append works");
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "php/checkData.php");
+		xhr.onreadystatechange = function () {
+			if(this.readyState == 4 && this.status == 200) {
+				let res = this.responseText;
+				console.log(res);
+				if (res == "success") {
+					alert("Votre message a bien été envoyé");
+					document.getElementById("form").reset();
+				}
+			}
+		}
+		xhr.send(data);
+	
 	}else{
 		console.log("nope something required");
 	}
