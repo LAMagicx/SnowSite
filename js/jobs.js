@@ -911,7 +911,6 @@ function checkValues () {
 		data.append("jobs", jobs.value);
 		data.append("subject", subject.value);
 		data.append("content", content.value);
-		console.log("data.append works");
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", "php/checkData.php");
 		xhr.onreadystatechange = function () {
