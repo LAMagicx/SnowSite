@@ -70,6 +70,9 @@ include("php/sessions.php");
 					<div class="contact-form" style="justify-content: center;">
 						<button type="button" onclick="checkValues()" style="min-width: 20%;" class="btn effect01" ><span>Send</span></button>
 					</div>
+					<div class="contact-form" style="justify-content: center;">
+						<label for='error' id='error' class='error' hidden><script></script></label>
+					</div>
 				</form>
 			</div>
 		</div>

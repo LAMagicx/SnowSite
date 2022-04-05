@@ -919,12 +919,15 @@ function checkValues () {
 				if (res == "Success") {
 					alert("Your message has been sent");
 					document.getElementById("myForm").reset();
+					document.getElementById("error").hidden = true;
+				} else {
+					document.getElementById("error").innerText = res;
+					document.getElementById("error").hidden = false;
 				}
 			}
 		}
 		xhr.send(data);
-	
-	}else{
+	} else{
 		console.log("There are errors, please check your inputs and try again");
 	}
 }
