@@ -8,7 +8,16 @@
 				<li><a class="link" href="store.php">Store</a></li>
 				<!-- <li><a class="link" href="about.php">About</a></li> -->
 				<li><a class="link" href="contact.php">Contact</a></li>
-				<li><a class="link" href="connect.php">Connexion</a></li>
+				<li><a class="link" href="connect.php">
+<?php
+if (isset($_SESSION["user"])) {
+	echo "Deconnexion";
+}else{
+	echo "Connexion";
+}
+?>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>
