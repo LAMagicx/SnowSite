@@ -22,7 +22,7 @@ include("php/sessions.php");
 	?>
 		<div class="main">
 			<div id="form">
-				<form action="" method="" >
+				<form >
 					<div class="contact-form style-input">
 						<input type="date" name="date" id="date" required>
 						<label for="date" class="perm-up">Birth date</label>
@@ -68,7 +68,7 @@ include("php/sessions.php");
 						<textarea name="content" id="content" rows="1" cols="38" placeholder="Enter your message here" required style="margin-left:3em;"></textarea>
 					</div>
 					<div class="contact-form" style="justify-content: center;">
-						<button type="submit" onclick="checkValues()" style="min-width: 20%;" class="btn effect01" ><span>Send</span></button>
+						<button type="button" onclick="checkValues()" style="min-width: 20%;" class="btn effect01" ><span>Send</span></button>
 					</div>
 				</form>
 			</div>

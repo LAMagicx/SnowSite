@@ -7,7 +7,7 @@
     "category": [
       "snowboard"
     ],
-    "stock": "3"
+    "stock": "5"
   },
   {
     "name": "Burton All Mountain Expert",
@@ -17,7 +17,7 @@
     "category": [
       "snowboard"
     ],
-    "stock": "1"
+    "stock": "7"
   },
   {
     "name": "Libtech All Mountain",
@@ -27,7 +27,7 @@
     "category": [
       "pack"
     ],
-    "stock": "2"
+    "stock": "4"
   },
   {
     "name": "LotusSpell Woman",
@@ -57,7 +57,7 @@
     "category": [
       "pack"
     ],
-    "stock": "1"
+    "stock": "5"
   },
   {
     "name": "Salomon Freestyle",
@@ -67,7 +67,7 @@
     "category": [
       "snowboard"
     ],
-    "stock": "2"
+    "stock": "10"
   },
   {
     "name": "Wedze All Mountain",
@@ -77,7 +77,7 @@
     "category": [
       "snowboard"
     ],
-    "stock": "2"
+    "stock": "8"
   },
   {
     "name": "Foraker 300",
@@ -87,7 +87,7 @@
     "category": [
       "boots"
     ],
-    "stock": "5"
+    "stock": "15"
   },
   {
     "name": "Maoke 300",
@@ -97,7 +97,7 @@
     "category": [
       "boots"
     ],
-    "stock": "6"
+    "stock": "8"
   },
   {
     "name": "Burton Freeride/Polyvalent",
@@ -107,7 +107,7 @@
     "category": [
       "pack"
     ],
-    "stock": "2"
+    "stock": "7"
   },
   {
     "name": "Vans Encore OG",
@@ -117,7 +117,7 @@
     "category": [
       "boots"
     ],
-    "stock": "4"
+    "stock": "10"
   },
   {
     "name": "Burton Ruler Boa",
@@ -137,7 +137,7 @@
     "category": [
       "pack"
     ],
-    "stock": "2"
+    "stock": "9"
   },
   {
     "name": "Firefly",
@@ -147,6 +147,6 @@
     "category": [
       "boots"
     ],
-    "stock": "4"
+    "stock": "7"
   }
 ]
