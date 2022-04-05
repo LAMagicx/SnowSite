@@ -22,7 +22,7 @@ include("php/sessions.php");
 	?>
 		<div class="main">
 			<div id="form">
-				<form >
+				<form id="myForm">
 					<div class="contact-form style-input">
 						<input type="date" name="date" id="date" required>
 						<label for="date" class="perm-up">Birth date</label>

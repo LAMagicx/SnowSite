@@ -883,7 +883,7 @@ for (var job of JOBS) {
 }
 
 function checkValues () {
-	// on recuper chaque input dans le form
+	//get values from form
 	date = document.getElementById("date");
 	firstname = document.getElementById("firstname");
 	surname = document.getElementById("surname");
@@ -895,11 +895,10 @@ function checkValues () {
 	subject = document.getElementById("subject");
 	content = document.getElementById("content");
 
-	// on verifie chaque input indivuduellement 
+	//each input is checked individually 
 	checks = checkDate(date) + checkFirstName(firstname) + checkName(surname) + checkMail(mail) + checkJobs(jobs) + checkSubject(subject) + checkContent(content);
 
 	if (checks == 0) {
-		console.log("all good to go");
 		var data = new FormData();
 		data.append("date", date.value);
 		data.append("firstname", firstname.value);
@@ -917,20 +916,20 @@ function checkValues () {
 			if(this.readyState == 4 && this.status == 200) {
 				let res = this.responseText;
 				console.log(res);
-				if (res == "success") {
-					alert("Votre message a bien été envoyé");
-					document.getElementById("form").reset();
+				if (res == "Success") {
+					alert("Your message has been sent");
+					document.getElementById("myForm").reset();
 				}
 			}
 		}
 		xhr.send(data);
 	
 	}else{
-		console.log("nope something required");
+		console.log("There are errors, please check your inputs and try again");
 	}
 }
 
-// stackoverflow
+// // stackoverflow
 const validateEmail = (email) => {
   return String(email)
     .toLowerCase()
