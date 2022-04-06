@@ -10,7 +10,7 @@ function createUser($username, $password) {
 	}
 	$user = array("username" => $username, "password" => password_hash($password, PASSWORD_DEFAULT));
 	array_push($users, $user);
-	if (file_put_contents($file, json_encode($users))) {
+	if (file_put_contents($file, json_encode($users, JSON_PRETTY_PRINT))) {
 		return 2;
 	} else {
 		return 0;
