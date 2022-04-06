@@ -4,8 +4,9 @@
 			<div id="site">
 				<ul class="nav">
 					<p>Navigate</p>
-					<li><a class="link" href="index.html">Home</a></li>
-					<li><a class="link" href="store.html">Store</a></li>
+					<li><a class="link" href="index.php">Home</a></li>
+					<li><a class="link" href="store.php">Store</a></li>
+					<li><a class="link" href="basket.php">Basket</a></li>
 				</ul>
 			</div>
 			<div id="Products">
@@ -17,7 +18,7 @@
 				<ul class="nav">
 					<p>Info</p>
 					<!-- <li><a class="link" href="about.html">About us</a></li> -->
-					<li><a class="link" href="contact.html">Contact us</a></li>
+					<li><a class="link" href="contact.php">Contact us</a></li>
 				</ul>
 			</div>
 		</div>
