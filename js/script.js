@@ -32,6 +32,7 @@ function addToShop (name, description, image, price, stock) {
 	let addToCart = document.createElement('button');
 	addToCart.innerText = 'Add to cart';
 	addToCart.setAttribute('class', 'btn effect01');
+	addToCart.setAttribute('onclick', 'sendToBasket(this)');
 	let imgdiv = document.createElement('div');
 	imgdiv.setAttribute('class', 'image-container');
 	imgdiv.appendChild(img);
@@ -47,6 +48,74 @@ function addToShop (name, description, image, price, stock) {
 	item.appendChild(addToCartDiv);
 	addToCartDiv.appendChild(addToCart);
 	shop.appendChild(item);
+}
+
+function addToBasket (name, description, image, price, stock) {
+	let d = document.createElement("div");
+	let item = document.createElement("div");
+	item.setAttribute('class', 'item');
+	let header = document.createElement('h3');
+	header.innerText = name;
+	let desc = document.createElement('p');
+	desc.innerText = description;
+	let cost = document.createElement('h4');
+	cost.innerText = "Price: " + price + "€";
+	let shop = document.getElementById("basket");
+	let img = document.createElement('img');
+	img.setAttribute('src', "imgs/" + image);
+	img.setAttribute('onclick', 'zoomImage(this)')
+	let imgdiv = document.createElement('div');
+	imgdiv.setAttribute('class', 'image-container');
+	imgdiv.appendChild(img);
+	let stockQty = document.createElement('h4');
+	stockQty.innerText = "Stock: " + stock;
+	stockQty.setAttribute('class', 'stock');
+	let close = document.createElement('button');
+	close.setAttribute("class", "close-button  effect01");
+	close.setAttribute("onclick", "removeItem('"+image+"', this)");
+	close.innerText = "x";
+	item.appendChild(close);
+	item.appendChild(header);
+	item.appendChild(imgdiv);
+	item.appendChild(stockQty);
+	item.appendChild(desc);
+	item.appendChild(cost);
+	shop.appendChild(item);
+}
+
+function removeItem(img, dat) {
+	//dat.parentElement.remove();
+	let data = new FormData();
+	data.append("id", img);
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "php/removeFromBasket.php");
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			addBasket(JSON.parse(this.responseText));
+		}
+	}
+	xhttp.send(data);
+}
+
+function addBasket(basket) {
+	document.getElementById("basket").innerHTML = "";
+	if (document.body.contains(document.getElementById("basket").nextElementSibling)) {
+		document.getElementById("basket").nextElementSibling.remove();
+	}
+	let total = 0;
+	PRODUCTS.forEach(product => {
+		for (pro of basket) {
+			if (pro.ID == product.image) {
+				total += pro.STOCK * product.price;
+				addToBasket(product.name, product.description, product.image, product.price, pro.STOCK);
+			}
+		}
+	});
+	if (total != 0) {
+		let d = document.createElement("h3");
+		d.innerText = "Total Price: " + String(total) + "€";
+		document.getElementById("basket").parentElement.appendChild(d);
+	}
 }
 
 function loadProducts (categories) {
@@ -144,5 +213,50 @@ function createTicks (cats) {
 		d.appendChild(i);
 		d.appendChild(l);
 		b.appendChild(d);
+	}
+}
+
+function clearSession() {
+	let data = new FormData();
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "php/disconnect.php");
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			let res = this.responseText;
+			console.log(res);
+		}
+	}
+	xhttp.send(data);
+}
+
+function getSession() {
+	let data = new FormData();
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "php/getSessionData.php");
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			let res = this.responseText;
+			console.log(res);
+		}
+	}
+	xhttp.send(data);
+}
+
+function sendToBasket(dat) {
+	let img = dat.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousSibling.children[0].src.slice(27);
+	let stock = parseInt(dat.parentElement.previousElementSibling.children[1].innerText);
+	if (stock > 0) {
+		let data = new FormData();
+		data.append("id", img);
+		data.append("stock", stock);
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("POST", "php/addToBasket.php");
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				let res = this.responseText;
+				console.log(res);
+			}
+		}
+		xhttp.send(data);
 	}
 }

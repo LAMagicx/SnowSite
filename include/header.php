@@ -6,14 +6,19 @@
 			<ul id="nav">
 				<li><a class="link" href="/">Home</a></li>
 				<li><a class="link" href="store.php">Store</a></li>
+<?php
+if (isset($_SESSION["user"])) {
+	echo '<li><a class="link" href="basket.php">Basket</a></li>';
+}
+?>
 				<!-- <li><a class="link" href="about.php">About</a></li> -->
 				<li><a class="link" href="contact.php">Contact</a></li>
 				<li><a class="link" href="connect.php">
 <?php
 if (isset($_SESSION["user"])) {
-	echo "Deconnexion";
+	echo "Disconnect";
 }else{
-	echo "Connexion";
+	echo "Connect";
 }
 ?>
 					</a>

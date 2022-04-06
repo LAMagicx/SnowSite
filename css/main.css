@@ -174,19 +174,24 @@ input[type="checkbox"]:checked::before {
 	color: #000;
 }
 
-#shop {
+#shop, #basket {
 	flex-flow: row wrap;
 	justify-content: space-evenly;
 	align-content: space-between;
 }
 
-#shop > div {
+
+#shop > div, .item {
 	margin: 30px 10px;
  	flex-flow: column nowrap;
 	vertical-align: middle;
 }
 
 #shop h3,h4,p {
+	text-align: center;
+}
+
+#basket h3,h4,p {
 	text-align: center;
 }
 
@@ -422,4 +427,25 @@ input[type=date]:focus::-webkit-datetime-edit {
 	left: 120%;
 	-webkit-transform: rotate(40deg);
 			transform: rotate(40deg);
+}
+
+.close-button {
+    background: transparent;
+    width: fit-content;
+    padding: 0.1em 0.4em;
+	border-radius: 50%;
+    font-size: 1.1em;
+    position: absolute;
+	transform: scale(0);
+	transition: all 200ms ease-in-out;
+	transform: translateY(-0.5em) scale(0);
+}
+
+.close-button:hover {
+	cursor:pointer;
+	transform: translateY(-0.5em);
+}
+
+.item:hover > button{
+	transform: translateY(-0.5em);
 }
