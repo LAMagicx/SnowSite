@@ -1,1 +1,14 @@
-[{"username":"samson","password":"$2y$10$Nz.98iWo\/ABZA3fuYXkyleZ1fdNZhp8LnkPrvgLD5ky2wFGPuDbiC"},{"username":"magic","password":"$2y$10$HD0rCnh7uzS6ZUZ04P4HcuohMDd61hHWtjA83GRdkO6cpjR2AnTdS"}]
+[
+    {
+        "username": "samson",
+        "password": "$2y$10$Nz.98iWo\/ABZA3fuYXkyleZ1fdNZhp8LnkPrvgLD5ky2wFGPuDbiC"
+    },
+    {
+        "username": "magic",
+        "password": "$2y$10$HD0rCnh7uzS6ZUZ04P4HcuohMDd61hHWtjA83GRdkO6cpjR2AnTdS"
+    },
+    {
+        "username": "pmaurer",
+        "password": "$2y$10$1PaHphU35gpGtUr\/02PKsOzqVqliM\/ox8x2gEu3ivZb1Hrn\/jnz0u"
+    }
+]

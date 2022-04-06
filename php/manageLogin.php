@@ -47,6 +47,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 		// logged in
 		$_SESSION["loggedIn"] = true;
 		$_SESSION["user"] = $username;
+		unset($_SESSION["basket"]);
 		$redirect = "Location: /";
 	} else if ($l == 1) {
 		// user exists but password incorrect
