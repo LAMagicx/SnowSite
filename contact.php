@@ -36,7 +36,7 @@ include_once("php/sessions.php");
 						<label for="name">Surname</label>
 					</div>
 					<div class="contact-form style-input">
-						<input type="mail" name="mail" id="mail" required>
+						<input type="email" name="mail" id="mail" required>
 						<label for="mail">Email</label>
 					</div>
 					<div class="contact-form">

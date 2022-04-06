@@ -928,7 +928,8 @@ function checkValues () {
 		}
 		xhr.send(data);
 	} else{
-		console.log("There are errors, please check your inputs and try again");
+		document.getElementById("error").innerText = "There are errors in the form !";
+		document.getElementById("error").hidden = false;
 	}
 }
 

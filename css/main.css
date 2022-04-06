@@ -311,7 +311,7 @@ select option {
 }
 
 .contact-form input:focus ~ label,
-.contact-form input:valid ~ label {
+.contact-form input ~ label {
 	top: -1.1em;
 	left: 0;
 	/* font-size: 0.75em; */
@@ -346,7 +346,7 @@ input[type=date]:focus::-webkit-datetime-edit {
 .hidden {
 	display: none !important;
 }
-.error {
+input.error:invalid {
 	color: red;
 }
 

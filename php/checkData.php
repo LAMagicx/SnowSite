@@ -24,7 +24,7 @@ if (isset($mail) && !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 if (isset($surname) && !preg_match("/^[a-zA-Z-' ]*$/",$surname)) {
     $surnameErr = "Only letters and white space allowed for the surname.\n";
 }
-if (isset($text) && !preg_match("/^[a-zA-Z0-9- ]*$/",$text)) {
+if (isset($text) && !preg_match("/^[\s\S]*$/",$text)) {
     $textErr = "Only letters, numbers and white space allowed for the text.\n";
 }
 if (isset($subject) && !preg_match("/^[a-zA-Z0-9- ]*$/",$subject)) {
