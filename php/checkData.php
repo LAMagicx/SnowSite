@@ -44,4 +44,23 @@ if (isset($nameErr) || isset($surnameErr) || isset($emailErr) || isset($textErr)
 } else {
     echo "Success";
 }
+
+//save data in ../formData.json
+$data = array(
+    "date" => $date,
+    "name" => $name,
+    "surname" => $surname,
+    "mail" => $mail,
+    "gender" => $gender,
+    "job" => $jobs,
+    "subject" => $subject,
+    "text" => $text
+);
+
+$fp = json_decode(file_get_contents('../formData.json'), true);
+array_push($fp, $data);
+file_put_contents('../formData.json', json_encode($fp, JSON_PRETTY_PRINT))
+
+
+
 ?>
