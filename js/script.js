@@ -81,22 +81,6 @@ function addToBasket (name, description, image, price, stock) {
 	item.appendChild(desc);
 	item.appendChild(cost);
 	shop.appendChild(item);
-	updateStock(name, stock);
-}
-
-function updateStock(name, stock) {
-	let data = new FormData();
-	data.append("name", name);
-	data.append("stock", stock-1);
-	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST", "php/updateStock.php");
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			let res = this.responseText;
-			console.log(res);
-		}
-	}
-	xhttp.send(data);
 }
 
 function removeItem(img, dat) {
@@ -261,6 +245,7 @@ function getSession() {
 function sendToBasket(dat) {
 	let img = dat.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousSibling.children[0].src.slice(27);
 	let stock = parseInt(dat.parentElement.previousElementSibling.children[1].innerText);
+	console.log(stock);
 	if (stock > 0) {
 		let data = new FormData();
 		data.append("id", img);
@@ -270,9 +255,24 @@ function sendToBasket(dat) {
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				let res = this.responseText;
-				console.log(res);
 			}
 		}
 		xhttp.send(data);
+		updateStock(img, stock);
 	}
+}
+
+function updateStock(name, stock) {
+	let data = new FormData();
+	data.append("name", name);
+	data.append("stock", stock);
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "php/updateStock.php");
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			let res = this.responseText;
+			console.log(res);
+		}
+	}
+	xhttp.send(data);
 }
