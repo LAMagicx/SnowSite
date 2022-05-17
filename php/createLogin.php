@@ -17,6 +17,34 @@ function createUser($username, $password) {
 	}
 }
 
+function createUserSQL($username, $password) {
+
+	$conn = mysqli_connect('localhost', 'magic', 'azda', 'SNOW_DB');
+
+	if (!$conn) {
+		header("Location: /");
+		die("Connection to database failed: " . mysqli_connect_error());
+	}
+
+	$sql = "SELECT username FROM USERS";
+	$users = $conn->query($sql);
+	if ($users->num_rows > 0) {
+		// output data of each row
+		while($row = $users->fetch_assoc()) {
+			if (strcmp($row["username"], $username) == 0) {
+				return 1;
+			}
+		}
+	}
+	$sql = "INSERT INTO USERS (username, password) VALUES ('$username', '".password_hash($password, PASSWORD_DEFAULT)."')";
+
+	if ($conn->query($sql) === TRUE) {
+		return 2;
+	} else {
+		return 0;
+	}
+}
+
 session_start();
 
 if (!isset($_SESSION["loggedIn"])) {
@@ -32,8 +60,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 
-	$l = createUser($username, $password);
-	echo $l;
+	$l = createUserSQL($username, $password);
 	if ($l == 2) {
 		$redirect = "Location: /connect.php?username=$username";
 	} else if ($l == 1) {

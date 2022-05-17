@@ -1,5 +1,33 @@
 <?php
 
+function loginSQL($username, $password) {
+	$conn = mysqli_connect('localhost', 'magic', 'azda', 'SNOW_DB');
+
+	if (!$conn) {
+		header("Location: /");
+		die("Connection to database failed: " . mysqli_connect_error());
+	}
+
+	$sql = "SELECT username, password FROM USERS";
+	$res = $conn->query($sql);
+
+
+	if ($res->num_rows > 0) {
+		while ($user = $res->fetch_assoc()) {
+			if (strcmp($user["username"], $username) == 0) {
+				if (password_verify($password, $user["password"])) {
+					return 2;
+				}else{
+					return 1;
+				}
+			}
+		}
+		return 0;
+	} else {
+		return 0;
+	}
+}
+
 function login($username, $password) {
 	// 0 - not logged in
 	// 1 - user correct password incorrect
@@ -18,13 +46,6 @@ function login($username, $password) {
 	return 0;
 }
 
-function createUser($username, $password) {
-	$file = "../users.json";
-	$users = json_decode(file_get_contents($file), true);
-	$user = array("username" => $username, "password" => password_hash($password, PASSWORD_DEFAULT));
-	array_push($users, $user);
-	file_put_contents($file, json_encode($users));
-}
 
 session_start();
 
@@ -41,7 +62,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 
-	$l = login($username, $password);
+	$l = loginSQL($username, $password);
 	echo $l;
 	if ($l == 2) {
 		// logged in

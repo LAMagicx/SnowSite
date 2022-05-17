@@ -30,16 +30,32 @@
 
 <?php
 
-$js_array = json_encode(json_decode(file_get_contents("cat.json")));
-echo "var PRODUCTS = ". $js_array . ";\n";
+$conn = mysqli_connect('localhost', 'magic', 'azda', 'SNOW_DB');
+if (!$conn) {
+	header("Location: /");
+	die("Connection to database failed: " . mysqli_connect_error());
+}
+$data = $conn->query("SELECT * FROM CATS WHERE stock > 0");
+$rows = array();
+if ($data->num_rows > 0) {
+	while ($r = $data->fetch_assoc()) {
+		$rows[] = $r;
+	}
+}
+echo "var PRODUCTS = ". json_encode($rows) . ";\n";
+
+//$js_array = json_encode(json_decode(file_get_contents("cat.json")));
+//echo "var PRODUCTS2 = ". $js_array . ";\n";
 
 ?>
-
 	let s = new Set();
 	for (p of PRODUCTS) {
+		s.add(p.category);
+		/*
 		for (c of p.category) {
 			s.add(c);
 		}
+		*/
 	}
 	let cats = Array.from(s);
 	for (const c of cats) {

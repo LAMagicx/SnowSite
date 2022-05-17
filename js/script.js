@@ -81,6 +81,22 @@ function addToBasket (name, description, image, price, stock) {
 	item.appendChild(desc);
 	item.appendChild(cost);
 	shop.appendChild(item);
+	updateStock(name, stock);
+}
+
+function updateStock(name, stock) {
+	let data = new FormData();
+	data.append("name", name);
+	data.append("stock", stock-1);
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "php/updateStock.php");
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			let res = this.responseText;
+			console.log(res);
+		}
+	}
+	xhttp.send(data);
 }
 
 function removeItem(img, dat) {
