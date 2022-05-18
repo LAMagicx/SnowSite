@@ -251,12 +251,10 @@ function sendToBasket(dat) {
 	let img = dat.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousSibling.children[0].src.slice(27);
 	let diff = parseInt(dat.parentElement.previousElementSibling.children[1].innerText);
 	let stock = parseInt(dat.parentElement.previousElementSibling.previousElementSibling.innerText.slice(7));
-	stock -= diff;
-	console.log(stock, diff);
 	if (stock >= 0) {
 		let data = new FormData();
 		data.append("id", img);
-		data.append("stock", stock);
+		data.append("stock", diff);
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("POST", "php/addToBasket.php");
 		xhttp.onreadystatechange = function() {
@@ -265,7 +263,7 @@ function sendToBasket(dat) {
 			}
 		}
 		xhttp.send(data);
-		updateStock(img, stock);
+		updateStock(img, stock-diff);
 	}
 }
 

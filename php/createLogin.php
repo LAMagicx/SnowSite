@@ -19,7 +19,7 @@ function createUser($username, $password) {
 
 function createUserSQL($username, $password) {
 
-	$conn = mysqli_connect('localhost', 'magic', 'azda', 'SNOW_DB');
+	include "DB.php";
 
 	if (!$conn) {
 		header("Location: /");

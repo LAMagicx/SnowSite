@@ -1,7 +1,7 @@
 <?php 
 $name = $_POST["name"];
 $stock = $_POST["stock"];
-$conn=mysqli_connect('localhost', 'magic', 'azda', 'SNOW_DB');
+include "DB.php";
 if (!$conn) {
 	header("Location: /");
 	die("Connection to database failed: " . mysqli_connect_error());
