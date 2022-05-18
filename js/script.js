@@ -1,3 +1,4 @@
+STOCK = false;
 function addToShop (name, description, image, price, stock) {
 	let item = document.createElement("div");
 	item.setAttribute('class', 'item');
@@ -10,7 +11,8 @@ function addToShop (name, description, image, price, stock) {
 	let stockQty = document.createElement('h4');
 	stockQty.innerText = "Stock: " + stock;
 	stockQty.setAttribute('class', 'stock');
-	stockQty.hidden = true;
+	if (!STOCK)
+		stockQty.hidden = true;
 	let shop = document.getElementById("shop");
 	let img = document.createElement('img');
 	img.setAttribute('src', "imgs/" + image);
@@ -177,6 +179,7 @@ function changeCategory() {
 	loadProducts(cat);
 }
 
+
 function showStock() {
 	document.getElementById("showStock").hidden = true;
 	document.getElementById("hideStock").hidden = false;
@@ -184,6 +187,7 @@ function showStock() {
 	Array.from(stocks).forEach(element => {
 		element.hidden = false;
 	});
+	STOCK = true;
 }
 
 function hideStock() {
@@ -193,6 +197,7 @@ function hideStock() {
 	Array.from(stocks).forEach(element => {
 		element.hidden = true;
 	});
+	STOCK = false;
 }
 
 function createTicks (cats) {
@@ -244,9 +249,11 @@ function getSession() {
 
 function sendToBasket(dat) {
 	let img = dat.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousSibling.children[0].src.slice(27);
-	let stock = parseInt(dat.parentElement.previousElementSibling.children[1].innerText);
-	console.log(stock);
-	if (stock > 0) {
+	let diff = parseInt(dat.parentElement.previousElementSibling.children[1].innerText);
+	let stock = parseInt(dat.parentElement.previousElementSibling.previousElementSibling.innerText.slice(7));
+	stock -= diff;
+	console.log(stock, diff);
+	if (stock >= 0) {
 		let data = new FormData();
 		data.append("id", img);
 		data.append("stock", stock);
@@ -271,8 +278,22 @@ function updateStock(name, stock) {
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			let res = this.responseText;
-			console.log(res);
 		}
 	}
 	xhttp.send(data);
+	getProducts();
+}
+
+function getProducts() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "php/loadProducts.php");
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			let res = JSON.parse(this.responseText);
+			console.log(res);
+			PRODUCTS = res;
+			changeCategory();
+		}
+	}
+	xhttp.send();
 }
