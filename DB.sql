@@ -3,9 +3,9 @@ USE SNOW_DB
 
 DROP TABLE IF EXISTS CATS;
 CREATE TABLE IF NOT EXISTS CATS(
-   name        VARCHAR(28) NOT NULL PRIMARY KEY
+   name        VARCHAR(28) NOT NULL 
   ,description VARCHAR(30)
-  ,image       VARCHAR(24) NOT NULL
+  ,image       VARCHAR(24) NOT NULL PRIMARY KEY
   ,price       NUMERIC(3,0) NOT NULL
   ,category   VARCHAR(9) NOT NULL
   ,stock       INTEGER  NOT NULL

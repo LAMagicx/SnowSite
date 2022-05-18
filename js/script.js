@@ -87,6 +87,8 @@ function addToBasket (name, description, image, price, stock) {
 
 function removeItem(img, dat) {
 	//dat.parentElement.remove();
+	var add = parseInt(dat.nextElementSibling.nextElementSibling.nextElementSibling.innerText.slice(7));
+	updateStock(img, add);
 	let data = new FormData();
 	data.append("id", img);
 	var xhttp = new XMLHttpRequest();
@@ -100,24 +102,34 @@ function removeItem(img, dat) {
 }
 
 function addBasket(basket) {
-	document.getElementById("basket").innerHTML = "";
-	if (document.body.contains(document.getElementById("basket").nextElementSibling)) {
-		document.getElementById("basket").nextElementSibling.remove();
-	}
-	let total = 0;
-	PRODUCTS.forEach(product => {
-		for (pro of basket) {
-			if (pro.ID == product.image) {
-				total += pro.STOCK * product.price;
-				addToBasket(product.name, product.description, product.image, product.price, pro.STOCK);
+	var PRODUCTS;
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "php/loadProducts.php");
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			let res = JSON.parse(this.responseText);
+			PRODUCTS = res;
+			document.getElementById("basket").innerHTML = "";
+			if (document.body.contains(document.getElementById("basket").nextElementSibling)) {
+				document.getElementById("basket").nextElementSibling.remove();
+			}
+			let total = 0;
+			PRODUCTS.forEach(product => {
+				for (pro of basket) {
+					if (pro.ID == product.image) {
+						total += pro.STOCK * product.price;
+						addToBasket(product.name, product.description, product.image, product.price, pro.STOCK);
+					}
+				}
+			});
+			if (total != 0) {
+				let d = document.createElement("h3");
+				d.innerText = "Total Price: " + String(total) + "€";
+				document.getElementById("basket").parentElement.appendChild(d);
 			}
 		}
-	});
-	if (total != 0) {
-		let d = document.createElement("h3");
-		d.innerText = "Total Price: " + String(total) + "€";
-		document.getElementById("basket").parentElement.appendChild(d);
 	}
+	xhttp.send();
 }
 
 function loadProducts (categories) {
@@ -178,7 +190,6 @@ function changeCategory() {
 	}
 	loadProducts(cat);
 }
-
 
 function showStock() {
 	document.getElementById("showStock").hidden = true;
@@ -241,20 +252,20 @@ function getSession() {
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			let res = this.responseText;
-			console.log(res);
+			console.log(JSON.parse(res));
 		}
 	}
 	xhttp.send(data);
 }
 
 function sendToBasket(dat) {
-	let img = dat.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousSibling.children[0].src.slice(27);
-	let diff = parseInt(dat.parentElement.previousElementSibling.children[1].innerText);
+	let img = dat.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousSibling.children[0].src.split('/').pop();
+	let add = parseInt(dat.parentElement.previousElementSibling.children[1].innerText);
 	let stock = parseInt(dat.parentElement.previousElementSibling.previousElementSibling.innerText.slice(7));
 	if (stock >= 0) {
 		let data = new FormData();
 		data.append("id", img);
-		data.append("stock", diff);
+		data.append("stock", add);
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("POST", "php/addToBasket.php");
 		xhttp.onreadystatechange = function() {
@@ -263,7 +274,8 @@ function sendToBasket(dat) {
 			}
 		}
 		xhttp.send(data);
-		updateStock(img, stock-diff);
+		updateStock(img, -1 * add);
+		getProducts();
 	}
 }
 
@@ -279,7 +291,6 @@ function updateStock(name, stock) {
 		}
 	}
 	xhttp.send(data);
-	getProducts();
 }
 
 function getProducts() {
@@ -288,7 +299,6 @@ function getProducts() {
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			let res = JSON.parse(this.responseText);
-			console.log(res);
 			PRODUCTS = res;
 			changeCategory();
 		}
