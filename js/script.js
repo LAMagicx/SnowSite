@@ -9,6 +9,9 @@ function addToShop (name, description, image, price, stock) {
 	let cost = document.createElement('h4');
 	cost.innerText = "Price: " + price;
 	let stockQty = document.createElement('h4');
+	if (stock == 0) {
+		cost.innerText = "Out of Stock !";
+	}
 	stockQty.innerText = "Stock: " + stock;
 	stockQty.setAttribute('class', 'stock');
 	if (!STOCK)

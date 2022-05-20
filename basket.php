@@ -10,7 +10,7 @@ include_once("php/sessions.php");
 	<meta name="description" content="snowboard shop">
 	<meta name="author" content="samson + pierrick">
 	<meta name="viewport" content="width=device-width, initial-scale=0.5">
-	<title>snow store</title>
+	<title>Snow Store</title>
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
