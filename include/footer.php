@@ -30,7 +30,8 @@
 
 <?php
 
-$conn = mysqli_connect('localhost', 'magic', 'azda', 'SNOW_DB');
+$conn = mysqli_connect('localhost', 'replaceWithMysqlUsername', 'replaceWithMysqlPassword', 'SNOW_DB');
+
 if (!$conn) {
 	header("Location: /");
 	die("Connection to database failed: " . mysqli_connect_error());

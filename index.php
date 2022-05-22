@@ -24,12 +24,11 @@ include_once("php/sessions.php");
 
 		<div class="main">
 			<div class="homemsg">
-				<p> <span>Welcome to your new favorite snow shop !</span>
-					<span>Where you can find the perfect board and boots that fit your feet !</span>
-					<span>Feel free to navigate throughout our website by using the links at the top. You will find everything you need and even more in our store !</span>
-					<span>If you ever have any questions or messages to send to us, please do so by fill our form in the contact page, our support will do its utmost to respond to you in the shortest delay.</span>
-					<span>You can find more information about us by checking the "about" page.</span>
-					<span>See you soon on the slopes !</span>
+				<p> <span>Welcome to your new favorite snow shop ! 
+				Where you can find the perfect board and boots that fit your feet ! 
+				Feel free to navigate throughout our website by using the links at the top. You will find everything you need and even more in our store ! 
+				If you ever have any questions or messages to send to us, please do so by filling our form in the contact page, our support will do its utmost to respond to you in the shortest delay.
+				See you soon on the slopes ! </span>
 				</p>
 			</div>
 		</div>
