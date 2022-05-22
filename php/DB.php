@@ -1,5 +1,5 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'magic', 'azda', 'SNOW_DB');
+$conn = mysqli_connect('localhost', 'mysql_username', 'mysql_mdp', 'SNOW_DB');
 
 ?>

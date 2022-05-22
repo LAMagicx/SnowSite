@@ -31,6 +31,3 @@ CREATE TABLE IF NOT EXISTS USERS(
    username VARCHAR(30) NOT NULL PRIMARY KEY
   ,password VARCHAR(60) NOT NULL
 );
-INSERT INTO USERS(username,password) VALUES ('samson','$2y$10$Nz.98iWo/ABZA3fuYXkyleZ1fdNZhp8LnkPrvgLD5ky2wFGPuDbiC');
-INSERT INTO USERS(username,password) VALUES ('magic','$2y$10$HD0rCnh7uzS6ZUZ04P4HcuohMDd61hHWtjA83GRdkO6cpjR2AnTdS');
-
