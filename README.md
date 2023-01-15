@@ -1,3 +1,5 @@
+![Alt Text](https://github.com/LAMagicx/SnowSite/blob/main/index.png?raw=true)
+
 # SnowSite
 WebSite for school project
 
